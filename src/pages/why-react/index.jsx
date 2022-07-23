@@ -2,16 +2,17 @@ import { useEffect, useRef } from "react";
 import init from "./example"
 
 const WhyReact = () => {
-	const isMountedRef = useRef(false);
+	const isMountedRef = useRef(null);
     useEffect(() => {
-		let interval
 		if (!isMountedRef.current) {
-			interval = init();
-			isMountedRef.current = true;
+			isMountedRef.current = init();
 		}
 
         return () => {
-            clearInterval(interval)
+			if (isMountedRef.current) {
+				clearInterval(isMountedRef.current)
+			}
+			isMountedRef.current = null;
         }
     }, [])
 
