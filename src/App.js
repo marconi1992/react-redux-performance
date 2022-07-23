@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import WhyReact from "./pages/why-react";
+import Example1 from "./pages/example-1";
+import Example2 from "./pages/example-2";
+import Example3 from "./pages/example-3";
+import Header from "./components/header";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div>
+			<BrowserRouter>
+				<Header />
+				<Routes>
+					<Route path="/" element={<WhyReact />}/>
+					<Route path="/example-1" element={<Example1 />}/>
+					<Route path="/example-2" element={<Example2 />}/>
+					<Route path="/example-3" element={<Example3 />}/>
+				</Routes>
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;
