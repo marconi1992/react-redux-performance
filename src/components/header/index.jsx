@@ -32,6 +32,13 @@ const Header = () => (
 				to="/example-3">
 				Example 3
 			</NavLink>
+			<NavLink 
+				className={({ isActive }) =>
+				isActive ? "active" : undefined
+				} 
+				to="/redux">
+				Redux
+			</NavLink>
 		</nav>
 	</header>
 );
